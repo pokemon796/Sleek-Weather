@@ -67,8 +67,7 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
                       DataManager.currentLocation = index;
                     });
                   },
-                  items: Weather.forecast.map((weather) {
-                    int index = Weather.forecast.indexOf(weather);
+                  items: DataManager.locations.map((weatherLocation) {
                     return Builder(
                       builder: (BuildContext context) {
                         return Padding(
@@ -81,7 +80,7 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
                             margin: EdgeInsets.symmetric(horizontal: 25.0),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: ColorsManager.colors[index].colors,
+                                colors: ColorsManager.colors[DataManager.locations.indexOf(weatherLocation)].colors,
                                 begin: Alignment.topRight,
                                 end: Alignment.bottomLeft,
                               ),
@@ -109,7 +108,7 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
                                     top: 25,
                                     left: 25,
                                     child: Text(
-                                      DataManager.locations[index].name.substring(0, DataManager.locations[index].name.indexOf(",")),
+                                      weatherLocation.displayName(),
                                       style: TextStyle(
                                         color: Color.fromRGBO(255, 255, 255, 0.5),
                                         fontSize: 25,
@@ -121,7 +120,7 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
                                     top: 25,
                                     right: 25,
                                     child: Text(
-                                      "${weather.temperature}°",
+                                      "${Weather.forecast[DataManager.locations.indexOf(weatherLocation)].temperature}°",
                                       style: TextStyle(
                                         color: Color.fromRGBO(255, 255, 255, 0.5),
                                         fontSize: 25,
@@ -136,7 +135,7 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
                                       left: 30,
                                     ),
                                     child: Text(
-                                      "\"Today it feels like ${weather.feelsLike}° with a high of ${weather.maxTemperature}° and a low of ${weather.minTemperature}° and the sky has ${weather.description}.\"",
+                                      "\"Today it feels like ${Weather.forecast[DataManager.locations.indexOf(weatherLocation)].feelsLike}° with a high of ${Weather.forecast[DataManager.locations.indexOf(weatherLocation)].maxTemperature}° and a low of ${Weather.forecast[DataManager.locations.indexOf(weatherLocation)].minTemperature}° and the sky has ${Weather.forecast[DataManager.locations.indexOf(weatherLocation)].description}.\"",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         color: Color.fromRGBO(55, 55, 55, 0.5),
@@ -150,7 +149,7 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
                                     bottom: 0,
                                     child: IconButton(
                                       icon: Icon(
-                                        weather.getIconData(),
+                                        Weather.forecast[DataManager.locations.indexOf(weatherLocation)].getIconData(),
                                       ),
                                       color: Color.fromRGBO(255, 255, 255, 0.5),
                                       iconSize: MediaQuery.of(context).size.width - 125,
@@ -193,7 +192,7 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
                 child: Stack(
                   children: <Widget>[
                     Text(
-                      "${DataManager.locations[DataManager.currentLocation].name.substring(0, DataManager.locations[DataManager.currentLocation].name.indexOf(","))}",
+                      "${DataManager.locations[DataManager.currentLocation].displayName()}",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 35,

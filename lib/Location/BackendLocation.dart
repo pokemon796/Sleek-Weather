@@ -16,6 +16,12 @@ class Location {
     return "$name:$latitude $longitude";
   }
 
+  String displayName() {
+    String displayName = this.name.indexOf(",") == -1 ? this.name : this.name.substring(0,  this.name.indexOf(","));
+    displayName = this.name.indexOf("-") == -1 ? displayName : this.name.substring(0,  this.name.indexOf("-"));
+    return displayName;
+  }
+
   static Location parseString(String location) {
     String name = location.substring(0, location.indexOf(":"));
     location = location.substring(location.indexOf(":") + 1);
