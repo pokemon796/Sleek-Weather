@@ -1,16 +1,11 @@
-# sleek_weather
+# Sleek Weather
 
-A new Flutter project.
+Built off the latest programming technology for phones: Flutter, this app lets you see your weather data perfectly without any hassle. You can add unlimited locations and can swipe through them as fast as you want. And all the information auto-updates in the blink of an eye.
 
-## Getting Started
+All you have to do is look.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screen Shot 1](https://github.com/ozanmirza1/Sleek-Weather/blob/master/ScreenShots/ScreenShot1.jpeg)
+![Screen Shot 2](https://github.com/ozanmirza1/Sleek-Weather/blob/master/ScreenShots/ScreenShot2.jpg)
+![Screen Shot 3](https://github.com/ozanmirza1/Sleek-Weather/blob/master/ScreenShots/ScreenShot3.jpg)
+![Screen Shot 4](https://github.com/ozanmirza1/Sleek-Weather/blob/master/ScreenShots/ScreenShot4.png)
+![Screen Shot 5](https://github.com/ozanmirza1/Sleek-Weather/blob/master/ScreenShots/ScreenShot5.jpg)
