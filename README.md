@@ -4,6 +4,8 @@ Built off the latest programming technology for phones: Flutter, this app lets y
 
 All you have to do is look.
 
+If you want to connect and talk about the app you can email me at ozan.i.mirza@gmail.com
+
 ![Screen Shot 1](https://github.com/ozanmirza1/Sleek-Weather/blob/master/ScreenShots/ScreenShot1.jpeg)
 ![Screen Shot 2](https://github.com/ozanmirza1/Sleek-Weather/blob/master/ScreenShots/ScreenShot2.jpg)
 ![Screen Shot 3](https://github.com/ozanmirza1/Sleek-Weather/blob/master/ScreenShots/ScreenShot3.jpg)
