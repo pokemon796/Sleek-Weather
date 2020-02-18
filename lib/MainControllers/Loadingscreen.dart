@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:app_settings/app_settings.dart';
 
 class Loadingscreen extends StatefulWidget {
   @override
@@ -28,18 +29,23 @@ class _Loadingscreen extends State<Loadingscreen> with TickerProviderStateMixin 
           ),
           Positioned(
             top: 35,
-            left: 0,
-            width: MediaQuery.of(context).size.width,
+            left: 25,
+            width: MediaQuery.of(context).size.width - 50,
             child: AnimatedOpacity(
               duration: Duration(seconds: 2),
               opacity: display,
-              child: Text(
-                "If it hasn't loaded, try rerunning the app.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
+              child: FlatButton(
+                onPressed: () {
+                  AppSettings.openLocationSettings();
+                },
+                child: Text(
+                  "If it hasn't loaded yet, try checking the location prefrences for the app here.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
                 ),
               ),
             ),

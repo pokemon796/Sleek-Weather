@@ -1,5 +1,5 @@
 PODS:
-  - "app_settings (1.0.6+2)":
+  - "app_settings (3.0.0+1)":
     - Flutter
   - connectivity (0.0.1):
     - Flutter
@@ -55,7 +55,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_web/ios"
 
 SPEC CHECKSUMS:
-  app_settings: 72b0ab4369ff445589e275506896bca9bf321944
+  app_settings: 08de369e8338cdb90cf57ed1167683d44f4ae822
   connectivity: 6e94255659cc86dcbef1d452ad3e0491bb1b3e75
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   geolocator: 80aba2bb48f8c7dfc5a8b70b9d13fc3edc8399c4

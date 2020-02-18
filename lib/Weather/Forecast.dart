@@ -7,6 +7,7 @@ import 'package:sleek_weather/Weather/WeatherCard.dart';
 import 'package:sleek_weather/Backend/ReorderableListHandler.dart';
 
 import 'package:flutter_reorderable_list/flutter_reorderable_list.dart';
+import 'package:time_formatter/time_formatter.dart';
 
 class Forecast extends StatefulWidget {
   final Weather forecast;
@@ -22,7 +23,7 @@ class _Forecast extends State<Forecast> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 750,
+      height: 875,
       child: Stack(
         children: <Widget>[
           Padding(
@@ -178,6 +179,128 @@ class _Forecast extends State<Forecast> with TickerProviderStateMixin {
                   ),
                 ],
               ),
+            ),
+          ),
+          Positioned(
+            top: 750,
+            left: 15,
+            width: MediaQuery.of(context).size.width - 30,
+            height: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                      ),
+                      child: Text(
+                        "Wind Speed",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 15,
+                      ),
+                      child: Text(
+                        "${widget.forecast.windSpeed} m/s",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Container(height: 40, child: VerticalDivider(thickness: 1.5, color: Colors.grey)),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                      ),
+                      child: Text(
+                        "Sunrise",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 15,
+                      ),
+                      child: Text(
+                        "${Weather.readTimestamp(widget.forecast.sunrise)}",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Container(height: 40, child: VerticalDivider(thickness: 1.5, color: Colors.grey)),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                      ),
+                      child: Text(
+                        "Sunset",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 15,
+                      ),
+                      child: Text(
+                        "${Weather.readTimestamp(widget.forecast.sunset)}",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Container(height: 40, child: VerticalDivider(thickness: 1.5, color: Colors.grey)),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                      ),
+                      child: Text(
+                        "Humidity",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 15,
+                      ),
+                      child: Text(
+                        "${widget.forecast.humidity}%",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
             ),
           ),
         ],
