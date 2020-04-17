@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sleek_weather/Backend/DataManager.dart';
 import 'package:sleek_weather/Colors/ColorsManager.dart';
+import 'package:admob_flutter/admob_flutter.dart';
 
 import 'package:sleek_weather/MainControllers/Homescreen.dart';
 import 'package:sleek_weather/MainControllers/InternetError.dart';
@@ -85,6 +86,7 @@ class _SleekWeather extends State<SleekWeather> {
 
 class AppStructure {
   bool switcher;
+  AdMobWrapper adMob;
 
   List<Widget> controllers = List<Widget>(2);
 
@@ -92,6 +94,13 @@ class AppStructure {
     connectivityProtocol.initialize();
     connectivityProtocol.checkConnection();
     switcher = false;
+
+    AdMobWrapper.main = AdMobWrapper(
+      AdMobTokens(
+        "ca-app-pub-7352520433824678~4784434260",
+        "ca-app-pub-7352520433824678/8994060442"
+      )
+    );
   }
 
   void setupData() {
@@ -100,5 +109,41 @@ class AppStructure {
 
   void setMainController(StatefulWidget controller) {
     controllers[1] = controller;
+  }
+}
+
+class AdMobWrapper {
+  static AdMobWrapper main;
+
+  AdMobTokens tokens;
+  AdmobInterstitial interstitialAd;
+
+  AdMobWrapper(AdMobTokens tokens) {
+    this.tokens = tokens;
+
+    interstitialAd = AdmobInterstitial(
+      adUnitId: this.tokens.adUnitID,
+      listener: (AdmobAdEvent event, Map<String, dynamic> args) {
+        if (event == AdmobAdEvent.closed) interstitialAd.load();
+        if (event == AdmobAdEvent.failedToLoad) {
+          print("Error code: ${args['errorCode']}");
+        }
+      },
+    );
+
+    interstitialAd.load();
+  }
+
+  void createAd() {
+    interstitialAd.show();
+  }
+}
+class AdMobTokens {
+  String appID;
+  String adUnitID;
+
+  AdMobTokens(String appID, String adUnitID) {
+    this.appID = appID;
+    this.adUnitID = adUnitID;
   }
 }

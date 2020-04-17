@@ -8,6 +8,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:sleek_weather/Colors/ColorsManager.dart';
 import 'package:sleek_weather/Weather/Forecast.dart';
 
+import 'package:sleek_weather/main.dart';
 import 'package:sleek_weather/Backend/DataManager.dart';
 import 'package:sleek_weather/Location/LocationManager.dart';
 import 'package:sleek_weather/Weather/BackendWeather.dart';
@@ -269,6 +270,10 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
                             widget.switcher();
                             setState(() {
                               _visible = !_visible;
+
+                              if (!_visible) {
+                                AdMobWrapper.main.createAd();
+                              }
                             });
                           },
                         ),
@@ -393,6 +398,10 @@ class _Homescreen extends State<Homescreen> with TickerProviderStateMixin {
               onPressed: () {
                 setState(() {
                   _weather = !_weather;
+
+                  if(!_weather) {
+                    AdMobWrapper.main.createAd();
+                  }
                 });
               },
             ),
